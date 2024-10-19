@@ -26,6 +26,15 @@ li{
 
 }
 
+input {
+    border: none;          
+    padding: 0;            
+    margin: 0;             
+    outline: none;       
+    box-shadow: none;      
+    font: inherit;     
+}
+
 
 
 .to_do_box{
@@ -58,3 +67,20 @@ section{
     gap: 4rem;
 }
 
+
+.add_icon{
+    align-self: center;
+    background-image: url(/public/add_icon.svg);
+    width: 2rem;
+    height: 2rem;
+}
+
+.add_icon:hover{
+   scale: 1.2;
+   cursor: pointer;
+}
+
+.hidden{
+    display: none;
+    
+}
