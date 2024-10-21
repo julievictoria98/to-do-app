@@ -17,7 +17,7 @@
                     <div class="add_icon">
                     </div>
                     <div class="add_task hidden">
-                        <input type="text">
+                        <input type="text" placeholder="Task">
                         <button>add</button>
                     </div>
                 </div>
@@ -25,11 +25,21 @@
             <div>
                 <h2>DONE LIST</h2>
                 <div class="done_box">
-                    <li>Make cake for birthday</li>
-                    <li>Make cake for birthday</li>
+                    <ul>
+
+                    </ul>
                 </div>
             </div>
         </section>
+        <template id="task-template">
+            <div class="flex_row">
+                <li></li>
+                <div class="icons">
+                    <div class="checkmark_icon"></div>
+                    <div class="delete_icon"></div>
+                </div>
+            </div>
+        </template>
     </main>
     <script src="../src/js/main.js"></script>
 </body>

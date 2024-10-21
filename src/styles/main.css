@@ -23,7 +23,7 @@ h1, h2{
 li{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.1rem;
-    list-style-type: none;
+    list-style-type:circle
 
 }
 
@@ -62,6 +62,11 @@ button:hover{
     padding: 1.5rem;
     position: relative;
 
+    &>:last-child{
+        align-self: center;
+
+    }
+
 }
 
 .done_box{
@@ -71,6 +76,7 @@ button:hover{
     background-color: rgb(183, 169, 152);
     border-radius: 0.5rem;
     padding: 1.5rem;
+    min-height: 4rem;
 
 }
 
@@ -94,7 +100,7 @@ section{
 }
 
 section::before{  
-    background-image: url(/public/clip1.png);
+    background-image: url(/public/imgs/clip1.png);
     position: absolute;
     content: "";
     height: 6.8rem;
@@ -109,7 +115,7 @@ section::before{
 
 .add_icon{
     align-self: center;
-    background-image: url(/public/add_icon.svg);
+    background-image: url(/public/imgs/add_icon.svg);
     width: 2rem;
     height: 2rem;
 }
@@ -125,3 +131,48 @@ section::before{
     
 }
 
+.flex_row{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.icons{
+      display: flex;
+      gap: 1rem;
+
+}
+
+.delete_icon{
+    background-image: url(/public/imgs/delete_icon.svg);
+    width: 1rem;
+    height: 1.4rem;
+}
+
+.delete_icon:hover{
+    scale: 1.2;
+    cursor: pointer;
+}
+
+
+.checkmark_icon{
+    background-image: url(/public/imgs/undone_icon.svg);
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.checkmark_icon:hover{
+    background-image: url(/public/imgs/done_icon.svg);
+    cursor: pointer;
+}
+
+.checked{
+        background-image: url(/public/imgs/done_icon.svg);
+
+}
+
+.checked:hover{
+    background-image: url(/public/imgs/undone_icon.svg);
+
+
+}
