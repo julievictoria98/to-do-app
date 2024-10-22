@@ -17,8 +17,17 @@
                     <div class="add_icon">
                     </div>
                     <div class="add_task hidden">
-                        <input type="text" placeholder="Task">
+                        <div>
+                            <p>Task</p>
+                            <input id="task_input" type="text" placeholder="'fx. Buy Apples'">
+                        </div>
+                        <div>
+                            <p>Quantity</p>
+                            <input id="quantity_input" type="number" placeholder="'2'">
+                        </div>
+
                         <button>add</button>
+                        
                     </div>
                 </div>
             </div>
@@ -33,9 +42,12 @@
         </section>
         <template id="task-template">
             <div class="flex_row">
-                <li></li>
-                <div class="icons">
+                <div>
                     <div class="checkmark_icon"></div>
+                    <li></li>
+                    <li id="task_quantity"></li>
+                </div>
+                <div class="icons">
                     <div class="delete_icon"></div>
                 </div>
             </div>
