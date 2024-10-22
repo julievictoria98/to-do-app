@@ -1,22 +1,13 @@
-const toDoArray = [
-  {
-    title: "Make Cake For Birthday",
-    id: crypto.randomUUID(),
-    done: false,
-    quantity: 1,
-  },
-  {
-    title: "Clean Kitchen",
-    id: crypto.randomUUID(),
-    done: false,
-    quantity: 1,
-  },
-];
+const savedArray = JSON.parse(localStorage.getItem("toDoArray")) || [];
 
 addEventListener("DOMContentLoaded", start);
 
 function start() {
-  showtasks();
+    if(!localStorage.getItem("toDoArray")) {
+        localStorage.setItem("toDoArray", JSON.stringify([]));
+        console.log("Jeg gemte default array");
+    }
+  showTasks();
 
   document.querySelector(".add_icon").addEventListener("click", () => {
     document.querySelector("#task_input").value = "";
@@ -43,21 +34,17 @@ document.querySelector("button").addEventListener("click", () => {
 
 function addTask(value) {
   document.querySelector(".add_task").classList.add("hidden");
-  toDoArray.push(value);
+  
+    savedArray.push(value);
     saveData();
-//   showtasks();
+    showTasks();
 }
 
-function showtasks() {
+function showTasks() {
   document.querySelector("ul").innerHTML = "";
   document.querySelector(".done_box ul").innerHTML = "";
-  
-const savedTasks = JSON.parse(localStorage.getItem("toDoArray")) || toDoArray;
 
-console.log(savedTasks);
-
-
-  savedTasks.forEach((task) => {
+  savedArray.forEach((task) => {
     const clone = document.querySelector("template").content.cloneNode(true);
     const list = document.querySelector("ul");
     const taskName = clone.querySelector("li");
@@ -72,7 +59,7 @@ console.log(savedTasks);
 
     if (task.done === false) {
       list.appendChild(clone);
-      console.log(task)
+      //console.log(task)
     }
 
     if (task.done === true) {
@@ -89,27 +76,24 @@ console.log(savedTasks);
     });
 
     checkMarkIcon.addEventListener("click", () => {
-      task.done = !task.done;
-      localStorage.setItem("toDoArray", JSON.stringify(savedTasks));
-
-      console.log(task.done);
-        showtasks();
+      toggleTaskDone(task);
     });
   });
 }
 
 function deleteTask(id) {
-  const index = toDoArray.findIndex((task) => task.id === id);
-  toDoArray.splice(index, 1);
+  const index = savedArray.findIndex((task) => task.id === id);
+  savedArray.splice(index, 1);
   saveData();
-//   showtasks();
+  showTasks();
 }
 
+function toggleTaskDone(task){
+    task.done = !task.done;
+    saveData();
+    showTasks();
+}
 
 function saveData(){
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-  const savedArray = JSON.parse(localStorage.getItem("toDoArray"));
-  console.log(savedArray);
-  showtasks();
-
+    localStorage.setItem("toDoArray", JSON.stringify(savedArray));
 }
