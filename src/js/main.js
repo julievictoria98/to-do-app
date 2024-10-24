@@ -5,12 +5,12 @@ addEventListener("DOMContentLoaded", start);
 function start() {
     if(!localStorage.getItem("toDoArray")) {
         localStorage.setItem("toDoArray", JSON.stringify([]));
-        console.log("Jeg gemte default array");
     }
   showTasks();
 
   document.querySelector(".add_icon").addEventListener("click", () => {
     document.querySelector("#task_input").value = "";
+    document.querySelector("#quantity_input").value = "";
     document.querySelector(".add_task").classList.remove("hidden");
   });
 }
@@ -29,7 +29,6 @@ document.querySelector("button").addEventListener("click", () => {
   
   addTask(newObject);
 });
-
 
 
 function addTask(value) {
@@ -54,18 +53,15 @@ function showTasks() {
     const doneList = document.querySelector(".done_box ul");
 
     taskName.textContent = task.title;
-    taskQuantity.textContent = task.quantity;
-
+    taskQuantity.textContent =  task.quantity + " pcs";
 
     if (task.done === false) {
       list.appendChild(clone);
-      //console.log(task)
     }
 
     if (task.done === true) {
       doneList.appendChild(clone);
       checkMarkIcon.classList.add("checked");
-    
     }
 
     if(task.quantity < 1){

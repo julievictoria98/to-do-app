@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/styles/main.css" />
 </head>
 <body>
     <main>
         <section>
             <div>
-                <h1>DO TO LIST</h1>
+                <h1>TO DO LIST</h1>
                 <div class="to_do_box">
-                    <ul>
-                    </ul>
-                    <div class="add_icon">
-                    </div>
+                    <ul></ul>
+                    <div class="add_icon"></div>
                     <div class="add_task hidden">
                         <div>
                             <p>Task</p>
-                            <input id="task_input" type="text" placeholder="'fx. Buy Apples'">
+                            <input id="task_input" type="text" placeholder="'fx. Buy Apples'" />
                         </div>
                         <div>
                             <p>Quantity</p>
-                            <input id="quantity_input" type="number" placeholder="'2'">
+                            <input id="quantity_input" type="number" placeholder="'2'" />
                         </div>
-
                         <button>add</button>
-                        
                     </div>
                 </div>
             </div>
             <div>
                 <h2>DONE LIST</h2>
                 <div class="done_box">
-                    <ul>
-
-                    </ul>
+                    <ul></ul>
                 </div>
             </div>
         </section>
-        <template id="task-template">
+        <template>
             <div class="flex_row">
                 <div>
                     <div class="checkmark_icon"></div>
                     <li></li>
-                    <li id="task_quantity"></li>
                 </div>
                 <div class="icons">
+                    <div id="task_quantity"></div>
                     <div class="delete_icon"></div>
                 </div>
             </div>

@@ -188,3 +188,7 @@ section::before{
 
 
 }
+
+#task_quantity{
+    font-family: 'Courier New', Courier, monospace;
+}
